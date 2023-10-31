@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
     ws.on('message', (message) => {
         console.log(`Mensaje recibido del navegador: ${message}`);
 
-        // Reenviar el mensaje a todos los clientes conectados
+        // Enviar el mensaje a todos los clientes conectados
         wss.clients.forEach((client) => {
             if (client !== ws && client.readyState === WebSocket.OPEN) {
                 client.send(message);
